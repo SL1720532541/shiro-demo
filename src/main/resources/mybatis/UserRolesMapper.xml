@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.my.shrio.dao.UserRolesMapper">
+
+	<resultMap id="BaseResultMap" type="com.my.shrio.domain.UserRoles">
+		<id column="user_id" property="userId" />
+		<result column="username" property="username" />
+		<result column="role_name" property="roleName" />
+	</resultMap>
+
+    <!-- 通用查询结果列-->
+    <sql id="Base_Column_List">
+        user_id AS userId, username, role_name AS roleName
+    </sql>
+
+	<select id="selectRoleByUsername" parameterType="string" resultType="string">
+		select role_name from user_roles
+	</select>
+
+</mapper>
